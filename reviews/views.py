@@ -2,6 +2,11 @@ from django.shortcuts import render
 
 
 def index(request):
-    name="world"
-    return render(request, 'reviews/base.html', {'name':invalid_name})
+    return render(request, 'reviews/base.html')
+
+def search_result(request):
+    context= {
+        'search_result': request.GET.get("search", "There is only one match!")
+    }
+    return render(request, 'reviews/search_results.html', context)
 

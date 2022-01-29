@@ -16,11 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-#import reviews.views
-from reviews import views
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
-    path('reviews/', include('reviews.urls'))
+    path('', include('driver_manual.urls')),
+    path('reviews/', include('reviews.urls')),
 ]

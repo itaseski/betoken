@@ -1,0 +1,49 @@
+{% extends 'driver_manual/base.html' %}
+{% load static %}
+
+{% block page_style %}
+<style>
+    body,
+    html {
+        height: 100%;
+    }
+
+    
+</style>
+{% endblock %}
+
+{%block main %}
+<div class="d-flex flex-column min-vh-100 justify-content-center align-items-center mx-2 bg">
+    <form>
+        <div class="card mb-3"  style="max-width: 540px;">
+            <div class="row g-0">
+              <div class="col-xl-4">
+                <img src="{% static 'driver_manual/images/a.jpg' %}" class="img-fluid rounded-start" alt="ovde sloka">
+              </div>
+              <div class="col-xl-8">
+                <div class="card-body">
+                  <h5 class="card-title text-center mt-3">Welcome to Link Logistic</h5>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">user name</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                  </div>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-sm btn-secondary" type="submit">Login</button>
+                  </div>
+                  <p class="card-text text-center"><small class="text-muted">Or if you do not have an account</small></p>
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-sm btn-secondary" type="submit">Login as Anonymous</button>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </form>
+</div>
+{% endblock %}

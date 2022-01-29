@@ -8,6 +8,9 @@ class Publisher(models.Model):
     web_site=models.URLField(max_length=200, help_text="The Publisher's website.")
     email = models.EmailField(max_length=254, help_text="The Publisher's email address.")
 
+    def __str__(self):
+        return self.name
+
 class Book(models.Model):
     """A published book."""
     title = models.CharField(max_length=70, help_text="The title of the book.")
@@ -16,12 +19,18 @@ class Book(models.Model):
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     contributors = models.ManyToManyField('Contributor', through="BookContributor")
 
+    def __str__(self):
+        return self.title
+
 
 class Contributor(models.Model):
     """ A contributor to a Book, e.g. author, editor, co-author. """
     first_names = models.CharField(max_length=50, help_text="The contributor's first name or names.")
     last_names = models.CharField(max_length=50, help_text="The contributor's last name or names.")
     email = models.EmailField(max_length=254, help_text="The contact email for the contributor.")
+
+    def __str__(self):
+        return self.first_names
 
 class BookContributor(models.Model):
     class ContributionRole(models.TextChoices):

@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'reviews/base.html')
+    return render(request, 'reviews/index.html')
 
 def search_result(request):
     context= {

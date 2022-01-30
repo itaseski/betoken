@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column min-vh-10 justify-content-top align-items-center">
+    <h1 class="display-1">Welcome to Bookr</h1>
+    <h4 class="display-6">List of Books</h4>
+</div>
+
+<!--list-->
+<div class="container">
+    <ul class="list-unstyled">
+        {% for book in books %}
+        <li>
+            {{ book }}<br>
+            {{ book.isbn}}<br>
+            {{ book.publisher}}       
+            <hr class="mb-1"> 
+        </li>
+        {% empty %}
+        <li>No articles yet.</li>
+        {% endfor %}
+    </ul>   
+</div>
+{% endblock%}

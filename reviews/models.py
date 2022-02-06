@@ -14,7 +14,7 @@ class Publisher(models.Model):
 class Book(models.Model):
     """A published book."""
     title = models.CharField(max_length=70, help_text="The title of the book.")
-    publication_date = models.DateField(verbose_name="Date the book was published.")
+    publication_date = models.DateField(verbose_name="Date the book was published.", help_text="Please use the following format: <em>YYYY-MM-DD</em>.")
     isbn = models.CharField(max_length=20, verbose_name="ISBN number of the book.")
     publisher = models.ForeignKey(Publisher, on_delete=models.CASCADE)
     contributors = models.ManyToManyField('Contributor', through="BookContributor")
@@ -49,3 +49,5 @@ class Review(models.Model):
     date_edited = models.DateTimeField(null=True, help_text="The date and time the review was last edited.")
     creator = models.ForeignKey(auth.get_user_model(), on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE, help_text="The Book that this review is for.")
+
+   

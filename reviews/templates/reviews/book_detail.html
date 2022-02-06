@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="d-flex flex-column min-vh-10 justify-content-top align-items-center">
+    <h4 class="display-6">Book Details</h4>
+</div>
+<div class="container">
+    <ul class="list-unstyled">
+        <li><small class="text-info">Title: </small><small> {{ book.title }}</small>
+        </li>
+        <li><small class="text-info">Publisher: </small><small> {{ book.publisher }}</small>
+        </li>
+        <li><small class="text-info">Publication Date: </small><small> {{ book.publication_date }}</small>
+        </li>
+        <li>
+
+        </li>
+    </ul>
+
+    {% if not reviews %}
+    <hr>
+    <h3>Be the first one to write a review.</h3>
+    {% else %}
+    <span class="text-info">Overall Rating: </span><span class="badge bg-secondary">{{ book_rating }}</span>
+    <br>
+    <hr>
+    <h3>Review Comments</h3>
+    <ul>
+        {% for review in reviews %}
+        <li class="list-group-item">
+            <span class="text-info">Review comment: </span> <span>{{ review.content }}</span>
+            <br>
+            <span class="text-info">Created on: </span><span>{{ review.date_created }}</span>
+            <br>
+            <span class="text-info">Modified on: </span><span>{{ review.date_edited }}</span>
+            <br>
+            <span class="text-info">Rating: </span><span class="badge badge-secondary badge-pill">{{ review.rating
+                }}</span>
+            <br>
+            <span class="text-info">Creator: </span><span>{{ review.creator.username }}</span>
+            <br>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</div>
+{% endblock%}
